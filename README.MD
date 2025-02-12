@@ -31,19 +31,19 @@ Thanks to [SomethingWithComputers](https://github.com/SomethingWithComputers) fo
   ### tasks:
   ```js
   const taskSchema = new mongoose.Schema({
-  title: String,
-  description: String,
-  taskStatus: String,
-  createdAt: {
-    type: Date,
-    immutable: true,
-    default: () => Date.now(),
-  },
-  updatedAt: Date,
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  },
+    title: String,
+    description: String,
+    taskStatus: String,
+    createdAt: {
+      type: Date,
+      immutable: true,
+      default: () => Date.now(),
+    },
+    updatedAt: Date,
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
   });
   ```
 
@@ -51,22 +51,22 @@ Thanks to [SomethingWithComputers](https://github.com/SomethingWithComputers) fo
 
   ```js
   const userSchema = new mongoose.Schema({
-  username: String,
-  email: String,
-  password: String,
-  tasks: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Task",
-  }],
-  createdAt: {
-    type: Date,
-    immutable: true,
-    default: () => Date.now(),
-  },
-  updatedAt: {
-    type: Date,
-    default: () => Date.now(),
-  },
+    username: String,
+    email: String,
+    password: String,
+    tasks: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Task",
+    }],
+    createdAt: {
+      type: Date,
+      immutable: true,
+      default: () => Date.now(),
+    },
+    updatedAt: {
+      type: Date,
+      default: () => Date.now(),
+    },
   });
   ```
 

@@ -28,7 +28,7 @@ Thanks to [SomethingWithComputers](https://github.com/SomethingWithComputers) fo
 
   The Schema are as follows:
 
-  tasks:
+  ### tasks:
   ```js
   const taskSchema = new mongoose.Schema({
   title: String,
@@ -47,7 +47,7 @@ Thanks to [SomethingWithComputers](https://github.com/SomethingWithComputers) fo
   });
   ```
 
-  users:
+  ### users:
 
   ```js
   const userSchema = new mongoose.Schema({

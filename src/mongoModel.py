@@ -8,8 +8,8 @@ class MongoModel:
     self.db = self.client[db_name]
     self.tasks = self.db["tasks"]
     self.username = username
-    self.todo = list(self.get_task_by_status("todo"))
-    self.in_progress = list(self.get_task_by_status("inProgress"))
+    self.todo = self.get_task_by_status("todo")
+    self.in_progress = self.get_task_by_status("inProgress")
 
 
 
@@ -23,8 +23,9 @@ class MongoModel:
     return tasks
 
   def get_task_by_status(self, status):
-    return self.tasks.find({"taskStatus": status},{'title': 1, 'description':1, 'taskStatus':1, 'updatedAt':1})
-  
+    res = list(self.tasks.find({"taskStatus": status},{'title': 1, 'description':1, 'taskStatus':1, 'updatedAt':1}))
+    #print(status, res)
+    return res
 
 
   

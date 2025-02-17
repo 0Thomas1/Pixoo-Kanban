@@ -1,7 +1,12 @@
 import requests
 import json
+import os
+import dotenv
+
+dotenv.load_dotenv()
 enum ={
-  'PIXOO_IP' : '192.168.50.78'}#change to your pixoo ip
+  'PIXOO_IP' : os.getenv('PIXOO_IP'),
+  'MONGO_URI' : os.getenv('MONGO_URL_')}
 
 def request(url,body):
   response = requests.post(url, json.dumps(body))

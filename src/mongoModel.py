@@ -1,8 +1,9 @@
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+import util
 
 class MongoModel:
-  def __init__(self, db_name, username, uri="YOUR_MONGO_URL"):
+  def __init__(self, db_name, username, uri=util.enum['MONGO_URI']):
     self.client = MongoClient(uri)
     self.db = self.client[db_name]
     self.tasks = self.db["tasks"]

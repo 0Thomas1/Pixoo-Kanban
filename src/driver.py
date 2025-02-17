@@ -2,6 +2,7 @@ import util
 from mongoModel import MongoModel
 from pixooDriver import PixooDriver 
 
+
 # init_pixoo() function
 def init_pixoo():
   pixoo = PixooDriver(util.enum['PIXOO_IP'])

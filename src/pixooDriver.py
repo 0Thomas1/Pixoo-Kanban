@@ -73,9 +73,12 @@ class PixooDriver:
 
   # draw a task on the screen
   def draw_task(self,task):
+    date = str(task['updatedAt'].date())[2:]
+
     self.pixoo.draw_line((2, 9), (62, 9), self.colors['line'])
     self.pixoo.draw_text(task["title"], (2, 12), self.colors['title'])
     self.draw_text(task["description"], (2, 22), self.colors['text'])
+    self.draw_text(str(date), (2, 58), self.colors['title'])
     self.push()
 
   # draw a rectangle on the screen from top left to bottom right
@@ -101,6 +104,8 @@ class PixooDriver:
     
     # draw each task
     for task in tasks:
+      date = task['updatedAt'].date()
+      print(date)
       self.pixoo.clear()
       #background
       self.draw_rect((0, 0), (64, 64), self.colors['background'])

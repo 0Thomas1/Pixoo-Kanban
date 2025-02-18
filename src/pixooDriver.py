@@ -1,6 +1,7 @@
 import time
 from pixoo import Channel, ImageResampleMode, Pixoo
 import util
+import time
 class PixooDriver:
   def __init__(self, ip):
     self.pixoo = Pixoo(ip)
@@ -75,6 +76,7 @@ class PixooDriver:
   def draw_task(self,task):
     date = str(task['updatedAt'].date())[2:]
 
+    self.draw_time()
     self.pixoo.draw_line((2, 9), (62, 9), self.colors['line'])
     self.pixoo.draw_text(task["title"], (2, 12), self.colors['title'])
     self.draw_text(task["description"], (2, 22), self.colors['text'])
@@ -104,8 +106,6 @@ class PixooDriver:
     
     # draw each task
     for task in tasks:
-      date = task['updatedAt'].date()
-      print(date)
       self.pixoo.clear()
       #background
       self.draw_rect((0, 0), (64, 64), self.colors['background'])
@@ -135,3 +135,15 @@ class PixooDriver:
     data = util.request(f"http://{util.enum['PIXOO_IP']}:80/post", {"Command": "Channel/GetIndex"})
     print(data)
     return data['SelectIndex']
+  
+  #draw time
+  def draw_time(self):
+    x = 47
+    the_time = str(time.strftime("%H:%M"))
+
+    self.pixoo.draw_text(the_time[:2], (x, 2), self.colors['status'])
+    self.pixoo.draw_text(the_time[2:3], (x + 7, 2), self.colors['status'])
+    self.pixoo.draw_text(the_time[3:], (x + 10, 2), self.colors['status'])
+
+    self.push()
+    

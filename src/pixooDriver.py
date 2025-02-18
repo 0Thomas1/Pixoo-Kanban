@@ -77,7 +77,7 @@ class PixooDriver:
     date = str(task['updatedAt'].date())[2:]
 
     self.draw_time()
-    self.pixoo.draw_line((2, 9), (62, 9), self.colors['line'])
+    self.pixoo.draw_line((1, 9), (63, 9), self.colors['line'])
     self.pixoo.draw_text(task["title"], (2, 12), self.colors['title'])
     self.draw_text(task["description"], (2, 22), self.colors['text'])
     self.draw_text(str(date), (2, 58), self.colors['title'])
@@ -110,7 +110,7 @@ class PixooDriver:
       #background
       self.draw_rect((0, 0), (64, 64), self.colors['background'])
       #Status
-      self.pixoo.draw_text(status, (2, 2), self.colors['status'])
+      self.pixoo.draw_text(status, (1, 2), self.colors['status'])
       self.draw_task(task);
       time.sleep(5)
 
@@ -138,7 +138,7 @@ class PixooDriver:
   
   #draw time
   def draw_time(self):
-    x = 47
+    x = 46
     the_time = str(time.strftime("%H:%M"))
 
     self.pixoo.draw_text(the_time[:2], (x, 2), self.colors['status'])

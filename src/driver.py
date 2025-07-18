@@ -2,10 +2,12 @@ import util
 from mongoModel import MongoModel
 from pixooDriver import PixooDriver 
 
+pixoo_ip = util.enum['PIXOO_IP']
+
 
 # init_pixoo() function
 def init_pixoo():
-  pixoo = PixooDriver(util.enum['PIXOO_IP'])
+  pixoo = PixooDriver(pixoo_ip)
   return pixoo
 
 # init_model() function
@@ -17,7 +19,7 @@ def init_model(name):
   return model
 
 pixoo = init_pixoo()
-mongo = init_model('USER_NAME')
+mongo = init_model('kkgarden')
 
 def main():  
   while True:

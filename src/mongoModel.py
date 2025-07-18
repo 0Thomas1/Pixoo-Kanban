@@ -3,7 +3,7 @@ from bson.objectid import ObjectId
 import util
 
 class MongoModel:
-  def __init__(self, db_name, username, uri=util.enum['MONGO_URI']):
+  def __init__(self, username, uri=util.enum['MONGO_URI'], db_name=util.enum['DB_NAME']):
     self.client = MongoClient(uri)
     self.db = self.client[db_name]
     self.tasks = self.db["tasks"]

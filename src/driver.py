@@ -3,6 +3,7 @@ from mongoModel import MongoModel
 from pixooDriver import PixooDriver 
 
 pixoo_ip = util.enum['PIXOO_IP']
+username = util.enum['USER_NAME']
 
 
 # init_pixoo() function
@@ -12,14 +13,14 @@ def init_pixoo():
 
 # init_model() function
 def init_model(name):
-  model = MongoModel('kanban', name)
+  model = MongoModel(name)
   if model.client is None:
     print('Failed to connect to MongoDB')
     exit(1)
   return model
 
 pixoo = init_pixoo()
-mongo = init_model('kkgarden')
+mongo = init_model(username)
 
 def main():  
   while True:

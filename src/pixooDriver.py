@@ -62,7 +62,7 @@ class PixooDriver:
         
       self.pixoo.draw_text(texts_token[key], (x + offset, xy[1] + row * 10), color)
 
-    self.push()
+    #self.push()
 
   # push the image to the screen
   def push(self):
@@ -145,5 +145,5 @@ class PixooDriver:
     self.pixoo.draw_text(the_time[2:3], (x + 7, 2), self.colors['status'])
     self.pixoo.draw_text(the_time[3:], (x + 10, 2), self.colors['status'])
 
-    self.push()
+    #self.push()
     

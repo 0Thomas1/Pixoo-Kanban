@@ -31,6 +31,10 @@ def main():
     except KeyboardInterrupt:
       print('[!] Exiting...')
       pixoo.revert_display()
+    except Exception as e:
+      print(f'[!] Unexpected error: {e!r}')
+      pixoo.revert_display()
+    finally:
       exit(0)
 
 if __name__ == "__main__":

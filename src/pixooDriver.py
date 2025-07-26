@@ -104,14 +104,14 @@ class PixooDriver:
       time.sleep(5)
       return
     
-    # draw each task
+    # draw each task in the list
     for task in tasks:
       self.pixoo.clear()
       #background
       self.draw_rect((0, 0), (64, 64), self.colors['background'])
       #Status
       self.pixoo.draw_text(status, (1, 2), self.colors['status'])
-      self.draw_task(task);
+      self.draw_task(task)
       time.sleep(5)
 
   # reset the channel

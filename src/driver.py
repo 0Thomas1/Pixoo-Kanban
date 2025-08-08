@@ -25,8 +25,11 @@ mongo = init_model(username)
 def main():  
   while True:
     try:
-      pixoo.draw_all_tasks(mongo.in_progress,"In Progress")
-      pixoo.draw_all_tasks(mongo.todo,"To Do")
+      in_progress_tasks = mongo.get_task_by_status("inProgress")
+      todo_tasks = mongo.get_task_by_status("todo")
+      
+      pixoo.draw_all_tasks(in_progress_tasks, "In Progress")
+      pixoo.draw_all_tasks(todo_tasks, "To Do")
 
     except KeyboardInterrupt:
       print('[!] Exiting...')

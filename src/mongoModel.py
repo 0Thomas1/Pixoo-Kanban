@@ -8,8 +8,7 @@ class MongoModel:
     self.db = self.client[db_name]
     self.tasks = self.db["tasks"]
     self.username = username
-    self.todo = self.get_task_by_status("todo")
-    self.in_progress = self.get_task_by_status("inProgress")
+   
 
 
 

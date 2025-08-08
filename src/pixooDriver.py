@@ -49,19 +49,19 @@ class PixooDriver:
     print(texts_token) #debug
     row = 0
     x = xy[0]
+    current_x = x
 
     # draw the text
     for key in texts_token:
-      offset = key * 4
-
+      word = texts_token[key]
+      
       # if the text is too long, go to the next row
-      if(key + len(texts_token[key]) > 15):
+      if(current_x + len(word) * 4 > xy[0] + 60):  # 60 is approximate screen width
         row += 1
-        x = xy[0]
-        offset = 0
+        current_x = xy[0]  # Reset to start of line
         
-      self.pixoo.draw_text(texts_token[key], (x + offset, xy[1] + row * 10), color)
-
+      self.pixoo.draw_text(word, (current_x, xy[1] + row * 10), color)
+      current_x += len(word) * 4 + 4  # Move x position by word width + space
     #self.push()
 
   # push the image to the screen
@@ -138,6 +138,7 @@ class PixooDriver:
   
   #draw time
   def draw_time(self):
+    # x axis offset
     x = 46
     the_time = str(time.strftime("%H:%M"))
 

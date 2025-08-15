@@ -23,7 +23,18 @@ Thanks to [SomethingWithComputers](https://github.com/SomethingWithComputers) fo
   ```sh
   pip install -r requirements.txt
   ```
-## Prequisite
+4. Create a `.env` file in the project root directory with the following variables:
+
+  ```env
+  MONGODB_URI=your_mongodb_connection_string
+  PIXOO_IP=your_pixoo_device_ip
+  USER_NAME=your_username
+  DB_NAME=your_db_name
+  ```
+
+  Replace `your_mongodb_connection_string` with your actual MongoDB connection string, `your_pixoo_device_ip` with the IP address of your Pixoo 64 device, `your_username` with your username in the db, and `your_db_name` with the name of your MongoDB database.
+
+## Prerequisite
   The MongoDB containing the tasks is from one of my other project [kanban](https://github.com/0Thomas1/kanban). This program can only work on a DB with the same document.
 
   The Schema are as follows:

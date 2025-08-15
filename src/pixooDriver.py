@@ -29,8 +29,8 @@ class PixooDriver:
     config = self.pixoo.get_all_device_configurations()
     self.clock = config['CurClockId']
     self.channel = self.get_channel()
-  
-  # tokenize the text to fit the screen
+
+  # tokenize the text to fit the screen (helper function)
   # return a dictionary with the position of each word
   def token_text(self, text):
     text_dict = {}
@@ -62,9 +62,9 @@ class PixooDriver:
         
       self.pixoo.draw_text(word, (current_x, xy[1] + row * 10), color)
       current_x += len(word) * 4 + 4  # Move x position by word width + space
-    #self.push()
 
-  # push the image to the screen
+
+  # push frame to the screen
   def push(self):
     self.pixoo.push()
 
@@ -146,5 +146,5 @@ class PixooDriver:
     self.pixoo.draw_text(the_time[2:3], (x + 7, 2), self.colors['status'])
     self.pixoo.draw_text(the_time[3:], (x + 10, 2), self.colors['status'])
 
-    #self.push()
+    
     

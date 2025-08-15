@@ -11,7 +11,7 @@ class MongoModel:
    
 
 
-
+  # get the user tasks
   def find_tasks_by_user(self):
     user = self.db["users"].find_one({"username":self.username})
     task_ids = user["tasks"]
@@ -21,15 +21,7 @@ class MongoModel:
       tasks.append(task)
     return tasks
 
+  # get a task by id
   def get_task_by_status(self, status):
     res = list(self.tasks.find({"taskStatus": status},{'title': 1, 'description':1, 'taskStatus':1, 'updatedAt':1}))
-    #print(status, res)
     return res
-
-
-  
-
-# Example usage:
-# model = MongoModel('test_db', 'test_collection')
-# model.insert_one({'name': 'John', 'age': 30})
-# print(model.find_one({'name': 'John'}))
